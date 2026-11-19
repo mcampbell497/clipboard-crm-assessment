@@ -1,0 +1,11 @@
+# Daily Bellhaven reconciliation: 06:30 local time, every day.
+#
+# What it does: scrapes the website, reads the CRM (GET only), and refreshes the local
+# review queue. It NEVER writes to the CRM. Approvals happen in the review app.
+#
+# Install:  crontab -e   then paste the line below, replacing /path/to with where you cloned the repo.
+# Check:    crontab -l
+# Output:   appended to logs/pipeline.log (gitignored). A non-zero exit means the run was
+#           aborted before touching the queue (e.g. the scrape did not find every community).
+
+30 6 * * * cd /path/to/clipboard-crm-assessment && mkdir -p logs && .venv/bin/python -m bellhaven.pipeline >> logs/pipeline.log 2>&1

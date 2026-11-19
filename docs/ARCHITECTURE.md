@@ -220,7 +220,7 @@ bellhaven/
 app.py            Streamlit review UI
 tests/            fixtures + pytest
 schedule/crontab.txt
-README.md, WRITEUP.md, requirements.txt, .env.example
+README.md, requirements.txt, .env.example
 ```
 
 Stack: Python, `requests`, `beautifulsoup4`, `streamlit`, `pytest`, stdlib `sqlite3`. No LLM calls.

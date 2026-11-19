@@ -73,13 +73,6 @@ class CRMClient:
     def list_contacts(self, **filters) -> List[dict]:
         return self._list("/contacts", **filters)
 
-    def account_total(self) -> int:
-        """One authenticated GET (a single row) that returns how many accounts the CRM holds."""
-        body = self._get("/accounts", {"page": 1, "page_size": 1})
-        if not body or "total" not in body:
-            raise CRMError("Account list did not include a total")
-        return int(body["total"])
-
     def get_account(self, account_id: str) -> Optional[dict]:
         return self._get(f"/accounts/{account_id}")
 
